@@ -18,6 +18,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
+console.log(processFirstItem(['foo', 'bar'], (str) => str + str ))
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -62,15 +63,10 @@ function counter2() {
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(){
-  let finalScore = Math.floor((Math.random() * Math.floor(2)));
-  return finalScore;
+  return Math.floor(Math.random() * (3)
+ 
   }
-   console.log(inning());
-
-    
-
-
-
+   
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -85,18 +81,22 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(inning, number){
-   const score = {Home: 0, Away: 0};
-   for (let i = 0; i < num; i++){
-
-   }
-return function (){
-
-
-
+function finalScore(callback, num){
+   let home = 0
+   let away = 0
+ while (num > 0 {
+   home = home + callback()
+   away = away + callback()
+ }
+ let results = {
+   'Home': home,
+   'Away': away
+ }
+   
+return results;
 }
-}
- console.log(finalScore(inning));
+
+ finalScore(inning, 9);
 
 /* Task 4: 
 
@@ -118,9 +118,31 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore(callback) {
+  let away = away + callback() 
+  let home = home + callback()
+  let currentInning = {
+    'away' : away, 
+    'home' : home,
+     
+   }
+   return currentInning
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
 }
 
+function scoreboard(callback1, callback2, num) {
+  let awayScore = 0
+  let homeScore = 0
+  
+  for (let i = 0; i < num; i++){
+    let resultsOfGetInning = callback1(callback2)
+    console.log('Inning ${i+1}: ${resultsOfGetInning.away}
+    {resultsOfGetInning.home}')
+    awayScore = awayScore + resultsOfGetInning.away
+    homeScore = homeScore + resultsOfGetInning.home
+}
+    console.log('Final Score: ${awayScore} - ${homeScore} - $
+    {homeScore}
+}
+    scoreboard(getInningScore, inning, 9)
 
